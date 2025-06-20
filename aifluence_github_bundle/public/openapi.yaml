@@ -1,0 +1,30 @@
+openapi: 3.1.0
+info:
+  title: Aifluence Audit API
+  version: 1.0.0
+servers:
+  - url: https://your-vercel-url.vercel.app
+paths:
+  /api/audit:
+    post:
+      operationId: auditURL
+      summary: Analyze a webpage for LLM readiness
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                url:
+                  type: string
+      responses:
+        '200':
+          description: JSON audit report
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  audit:
+                    type: object
